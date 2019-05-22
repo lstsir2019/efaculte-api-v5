@@ -29,6 +29,7 @@ public class FiliereConverter extends AbstractConverter<Filiere, FiliereVo> {
             item.setReferenceEntiteAdministratif(vo.getReferenceEntiteAdministratif());
             item.setEtudiants(new EtudiantConverter().toItem(vo.getEtudiantsVo()));
             item.setSemestres(new SemestreConverter().toItem(vo.getSemestresVo()));
+            item.setModules(new ModuleConverter().toItem(vo.getModulesVo()));
             return item;
         }
     }
@@ -47,6 +48,7 @@ public class FiliereConverter extends AbstractConverter<Filiere, FiliereVo> {
             vo.setReferenceEntiteAdministratif(item.getReferenceEntiteAdministratif());
             vo.setSemestresVo(new SemestreConverter().toVo(item.getSemestres()));
             vo.setEtudiantsVo(new EtudiantConverter().toVo(item.getEtudiants()));
+            vo.setModulesVo(new ModuleConverter().toVo(item.getModules()));
             
             return vo;
         }

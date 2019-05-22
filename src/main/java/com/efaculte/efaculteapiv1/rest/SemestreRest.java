@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Naoufal's pc
+ * @author User
  */
 @RestController()
 @CrossOrigin(origins = ("http://localhost:4200"))
@@ -49,6 +49,12 @@ public class SemestreRest {
     @PostMapping("/saveSemestreInFiliere/filiereLibelle/{libelle}")
     public int saveSemestre(@RequestBody Semestre semestre,@PathVariable String libelle) {
         return semestreService.saveSemestre(semestre, libelle);
+    }
+
+    @GetMapping("/libelleSemestre/{libelleSemestre}/libelleFiliere/{libelleFiliere}")
+    public SemestreVo findByLibelleAndFiliereLibelle(@PathVariable String libelleSemestre,@PathVariable String libelleFiliere) {
+                SemestreConverter semestreConverter = new SemestreConverter();
+        return semestreConverter.toVo(semestreService.findByLibelleAndFiliereLibelle(libelleSemestre, libelleFiliere));
     }
 
     

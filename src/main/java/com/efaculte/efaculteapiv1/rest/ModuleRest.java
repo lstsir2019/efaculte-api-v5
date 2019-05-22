@@ -31,7 +31,7 @@ public class ModuleRest {
 
     
     @GetMapping("/libelleFiliere/{libelleFiliere}")
-    public List<Module> findByFiliereLibelle(String libelleFiliere) {
+    public List<Module> findByFiliereLibelle(@PathVariable String libelleFiliere) {
         return moduleService.findByFiliereLibelle(libelleFiliere);
     }
 

@@ -37,6 +37,13 @@ public class Filiere implements Serializable {
     @OneToMany(mappedBy = "filiere")
     private List<Semestre> semestres;
 
+    @OneToMany(mappedBy = "filiere")
+    private List<Module> modules;
+    @OneToMany(mappedBy = "filiere")
+    private List<Annonce> annonces;
+
+
+    
 
     
    
@@ -55,6 +62,16 @@ public class Filiere implements Serializable {
         this.id = id;
     }
 
+    public List<Annonce> getAnnonces() {
+        return annonces;
+    }
+
+    public void setAnnonces(List<Annonce> annonces) {
+        this.annonces = annonces;
+    }
+
+   
+
     
 
     public String getReferenceEntiteAdministratif() {
@@ -66,8 +83,15 @@ public class Filiere implements Serializable {
     }
 
    
-    
+    @JsonIgnore
+    public List<Module> getModules() {
+        return modules;
+    }
 
+    @JsonSetter
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
+    }
     
     @JsonIgnore
     public List<Semestre> getSemestres() {

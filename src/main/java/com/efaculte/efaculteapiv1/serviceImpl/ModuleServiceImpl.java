@@ -36,10 +36,29 @@ public class ModuleServiceImpl implements ModuleService{
     @Autowired 
     PersonnelProxy personnelProxy;
     
-//    @Override
-//        public Module findBySemestreByFiliereLibelle(String libelle){
-//            return moduleDao.findBySemestreByFiliereLibelle(libelle);
-//        }
+    @Override
+            public List<Module> findByFiliereLibelle(String libelle){
+            return moduleDao.findByFiliereLibelle(libelle);
+        }
+    
+    @Override
+    public int saveModuleWithFiliere(Filiere filiere,List<Module> modules){
+        if(modules ==null && modules.isEmpty()){
+            return -4;
+        }else{
+            for(Module module :modules){
+                PersonnelVo p=personnelProxy.findByCinAndTypePersonnelLibelle(module.getCinPersonnel(), module.getTypePersonnel());
+             if(p==null ){
+                    return -5;
+                    }else{
+                 module.setFiliere(filiere);
+                moduleDao.save(module);
+             }
+                
+            }
+            return 1;
+        }
+    }
     
     @Override
     public int saveModuleWithSemestre(Semestre semestre,List<Module> modules){
@@ -48,14 +67,13 @@ public class ModuleServiceImpl implements ModuleService{
         }else{
             for(Module module :modules){
                 PersonnelVo p=personnelProxy.findByCinAndTypePersonnelLibelle(module.getCinPersonnel(), module.getTypePersonnel());
-                String prof = null;
              if(p==null ){
                     return -5;
                     }else{
                  module.setSemestre(semestre);
+                module.setFiliere(semestre.getFiliere());
                 moduleDao.save(module);
              }
-                
             }
             return 1;
         }
@@ -102,10 +120,10 @@ public class ModuleServiceImpl implements ModuleService{
             return moduleDao.findBySemestre(semestre);
         }
          
-     @Override
-         public List<Module> findByFiliereLibelle(String libelleFiliere){
-             return moduleDao.findByFiliereLibelle(libelleFiliere);
-         }
+//     @Override
+//         public List<Module> findByFiliereLibelle(String libelleFiliere){
+//             return moduleDao.findByFiliereLibelle(libelleFiliere);
+//         }
         
         
 ////    @Override

@@ -51,15 +51,16 @@ public class SemestreServiceImpl implements SemestreService {
     
     @Override
     public Semestre saveSemestreWithModule(Semestre semestre){
-        Semestre s=findByLibelle(semestre.getLibelle());
-        if(s!=null){
-            return null;
-        }else{
+//        Semestre s=findByLibelle(semestre.getLibelle());
+//        if(s!=null){
+//            return null;
+//        }else{
             semestreDao.save(semestre);
             moduleService.saveModuleWithSemestre(semestre, semestre.getModules());
+            //moduleService.saveModuleWithFiliere(semestre.getFiliere(), semestre.getModules());
             return semestre;
             
-        }
+       // }
     }
         
 
@@ -71,6 +72,7 @@ public class SemestreServiceImpl implements SemestreService {
             for (Semestre semestre : semestres) {
                 semestre.setFiliere(filiere);
                 saveSemestreWithModule(semestre);
+               
                 semestreDao.save(semestre);
             }
             return 1;
@@ -81,21 +83,27 @@ public class SemestreServiceImpl implements SemestreService {
     @Override
     public int saveSemestre(Semestre semestre, String libelle) {
         Filiere f = filiereService.findByLibelle(libelle);
-        Semestre s=findByLibelle(semestre.getLibelle());
         if(f==null){
             return -1;
         }
-        else if(s!=null){
+         
+        else{
+                    Semestre s=findByLibelleAndFiliereLibelle(semestre.getLibelle(),f.getLibelle());
+                if(s!=null){
             return -2;
         }
-        else{
-            semestre.setFiliere(f);
+                else{
+                    semestre.setFiliere(f);
+                 // moduleService.saveModuleWithSemestre(semestre, semestre.getModules());      
             saveSemestreWithModule(semestre);
            // moduleService.saveModuleWithSemestre(semestre, semestre.getModules());
             filiereService.saveFiliereWithSemestre(f);
+             //filiereService.saveFiliereWithModule(f);
             semestreDao.save(semestre);
 
         return 1;
+                }
+            
         }
 
     }

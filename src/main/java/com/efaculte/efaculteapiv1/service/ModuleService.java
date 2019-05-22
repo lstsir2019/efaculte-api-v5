@@ -5,6 +5,7 @@
  */
 package com.efaculte.efaculteapiv1.service;
 
+import com.efaculte.efaculteapiv1.bean.Filiere;
 import com.efaculte.efaculteapiv1.bean.Module;
 import com.efaculte.efaculteapiv1.bean.Semestre;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public interface ModuleService {
     public int saveModuleWithSemestre(Semestre semestre,List<Module> modules);
+    public int saveModuleWithFiliere(Filiere filiere,List<Module> modules);
     public List<Module> findBySemestreLibelle(String libelle);
     public List<Module> findBySemestre(Semestre semestre);
     public List<Module> findByFiliereLibelle(String libelleFiliere);

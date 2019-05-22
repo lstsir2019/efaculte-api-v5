@@ -18,8 +18,10 @@ public interface FiliereService {
     public Filiere findByLibelle(String libelle);
     public Filiere saveFiliereWithSemestre(Filiere filiere);
     public Filiere saveFiliereWithEtudiant(Filiere filiere);
+     public Filiere saveFiliereWithModule(Filiere filiere);
     public int saveFiliere(Filiere filiere);
     public List<Filiere> findAll();
     public List<Filiere> findByReferenceEntiteAdministratif(String refDep);
+    public Filiere saveFiliereWithAnnonce(Filiere filiere);
 
 }

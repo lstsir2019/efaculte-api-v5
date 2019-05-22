@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import com.efaculte.efaculteapiv1.service.FiliereService;
 import com.efaculte.efaculteapiv1.dao.FiliereDao;
 import com.efaculte.efaculteapiv1.rest.proxy.EntiteAdministratifProxy;
+import com.efaculte.efaculteapiv1.service.AnnonceService;
 import com.efaculte.efaculteapiv1.service.EtudiantService;
+import com.efaculte.efaculteapiv1.service.ModuleService;
 import com.efaculte.efaculteapiv1.service.SemestreService;
 import com.efaculte.efaculteapiv1.vo.exhange.EntiteAdministratifVo;
 
@@ -31,6 +33,12 @@ public class FilliereServiceImpl implements FiliereService {
     @Autowired
     private EtudiantService etudiantService;
     
+    @Autowired
+    private ModuleService moduleService;
+    
+    @Autowired
+    private AnnonceService annonceService;
+    
     
     @Autowired
     private EntiteAdministratifProxy administratifProxy;
@@ -43,12 +51,41 @@ public class FilliereServiceImpl implements FiliereService {
         this.filliereDao = filliereDao;
     }
     
+   
+    
     
     @Override
     public List<Filiere> findByReferenceEntiteAdministratif(String refDep){
         return filliereDao.findByReferenceEntiteAdministratif(refDep);
     }
 
+    
+    @Override
+    public Filiere saveFiliereWithAnnonce(Filiere filiere) {
+        Filiere f=findByLibelle(filiere.getLibelle());
+        if(f!=null){
+            return null;
+        }else{
+            filliereDao.save(filiere);
+            annonceService.saveAnnonceWithFiliere(filiere, filiere.getAnnonces());
+     return filiere;
+        }
+    }
+    
+    
+    @Override
+    public Filiere saveFiliereWithModule(Filiere filiere) {
+        Filiere f=findByLibelle(filiere.getLibelle());
+        if(f!=null){
+            return null;
+        }else{
+            filliereDao.save(filiere);
+            moduleService.saveModuleWithFiliere(filiere, filiere.getModules());
+     return filiere;
+        }
+    }
+    
+    
     @Override
     public Filiere saveFiliereWithSemestre(Filiere filiere){
         Filiere f=findByLibelle(filiere.getLibelle());

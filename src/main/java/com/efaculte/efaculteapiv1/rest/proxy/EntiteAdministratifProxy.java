@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author admin
  */
 
-@FeignClient(name="microservice3-mandatPersonnel",url="localhost:8090")
+@FeignClient(name="microservice3-mandatPersonnel",url="localhost:9999")
 public interface EntiteAdministratifProxy {      
  
     @GetMapping("/mandat/mandats/refEntite/{refEnti}/refType/{refType}")

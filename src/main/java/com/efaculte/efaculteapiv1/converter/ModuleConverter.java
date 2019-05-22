@@ -27,6 +27,7 @@ public class ModuleConverter extends AbstractConverter<Module, ModuleVo> {
             item.setId(vo.getId());
             item.setLibelle(vo.getLibelle());
             item.setCinPersonnel(vo.getCinPersonnel());
+           // item.setFiliere(new FiliereConverter().toItem(vo.getFiliereVo()));
             return item; 
         }
     }
@@ -41,6 +42,7 @@ public class ModuleConverter extends AbstractConverter<Module, ModuleVo> {
             vo.setId(item.getId());
             vo.setLibelle(item.getLibelle());
             vo.setCinPersonnel(item.getCinPersonnel());
+            //vo.setFiliereVo(new FiliereConverter().toVo(item.getFiliere()));
             return vo; 
         }
     }

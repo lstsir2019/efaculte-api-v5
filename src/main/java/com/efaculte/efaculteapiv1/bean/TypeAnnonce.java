@@ -6,19 +6,20 @@
 package com.efaculte.efaculteapiv1.bean;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author admin
  */
 @Entity
-public class Module implements Serializable {
+public class TypeAnnonce implements Serializable {
 
     
 
@@ -27,15 +28,9 @@ public class Module implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
+    private int code;
+  
 
-    @ManyToOne
-    private Semestre semestre;
-    private String cinPersonnel;
-    private String typePersonnel;
-    @ManyToOne
-    private Filiere filiere;
-
-    
     public Long getId() {
         return id;
     }
@@ -43,58 +38,27 @@ public class Module implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public String getCinPersonnel() {
-        return cinPersonnel;
-    }
 
-    public void setCinPersonnel(String cinPersonnel) {
-        this.cinPersonnel = cinPersonnel;
-    }
-
-    public String getTypePersonnel() {
-        return typePersonnel;
-    }
-
-    public void setTypePersonnel(String typePersonnel) {
-        this.typePersonnel = typePersonnel;
-    }
-
-    public Filiere getFiliere() {
-        return filiere;
-    }
-
-    public void setFiliere(Filiere filiere) {
-        this.filiere = filiere;
-    }
-
-   
-    
-
-    
- 
-
-    public Semestre getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(Semestre semestre) {
-        this.semestre = semestre;
-    }
-
-   
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    
     public String getLibelle() {
         return libelle;
     }
 
-    
-    
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -105,10 +69,10 @@ public class Module implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Module)) {
+        if (!(object instanceof TypeAnnonce)) {
             return false;
         }
-        Module other = (Module) object;
+        TypeAnnonce other = (TypeAnnonce) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -117,7 +81,7 @@ public class Module implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sir.efstapiv1.bean.FilliereModule[ id=" + id + " ]";
+        return "com.efaculte.efaculteapiv1.bean.TypeAnnonce[ id=" + id + " ]";
     }
-
+    
 }

@@ -16,6 +16,8 @@ public class ModuleVo {
     private SemestreVo semestreVo;
     private String cinPersonnel;
     private String typePersonnel;
+    private FiliereVo filiereVo;
+
 
     public Long getId() {
         return id;
@@ -31,6 +33,14 @@ public class ModuleVo {
 
     public void setTypePersonnel(String typePersonnel) {
         this.typePersonnel = typePersonnel;
+    }
+
+    public FiliereVo getFiliereVo() {
+        return filiereVo;
+    }
+
+    public void setFiliereVo(FiliereVo filiereVo) {
+        this.filiereVo = filiereVo;
     }
 
     
@@ -49,6 +59,8 @@ public class ModuleVo {
     public void setSemestreVo(SemestreVo semestreVo) {
         this.semestreVo = semestreVo;
     }
+
+   
 
     
 

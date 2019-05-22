@@ -21,5 +21,6 @@ public interface ModuleDao extends JpaRepository<Module, Long>{
     public List<Module> findBySemestreLibelle(String libelle);
     public Module findByLibelle(String libelle);
     public List<Module> findByFiliereLibelle(String libelle);
+    //public List<Module> findBySemestrelibelleAndFiliereLibelle(String libelleSeme,String libelleFiliere);
    //public List<Module> findBySemestreByFiliereLibelle(String libelle);
 }

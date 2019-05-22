@@ -26,6 +26,8 @@ public class FiliereVo {
     private List<SemestreVo> semestresVo;
     private List<EtudiantVo> etudiantsVo;
     private String referenceEntiteAdministratif;
+    private List<ModuleVo> modulesVo;
+    private List<AnnonceVo> annonceVos;
     
     
     public Long getId() {
@@ -36,6 +38,17 @@ public class FiliereVo {
         this.id = id;
     }
 
+    public List<AnnonceVo> getAnnonceVos() {
+        return annonceVos;
+    }
+
+    public void setAnnonceVos(List<AnnonceVo> annonceVos) {
+        this.annonceVos = annonceVos;
+    }
+
+    
+    
+    
     public String getLibelle() {
         return libelle;
     }
@@ -68,6 +81,14 @@ public class FiliereVo {
 
     public void setTypeFiliere(String typeFiliere) {
         this.typeFiliere = typeFiliere;
+    }
+
+    public List<ModuleVo> getModulesVo() {
+        return modulesVo;
+    }
+
+    public void setModulesVo(List<ModuleVo> modulesVo) {
+        this.modulesVo = modulesVo;
     }
 
   
