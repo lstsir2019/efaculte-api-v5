@@ -17,4 +17,7 @@ public interface AnnonceService {
     public Annonce saveAnnonce(Annonce annonce);
     public int saveAnnonceWithFiliere(Filiere filiere, List<Annonce> annonces);
     public Annonce findByTitle(String title);
+    public Annonce saveAnnonceWithDocument(Annonce annonce);
+    public List<Annonce> findAll();
+
 }

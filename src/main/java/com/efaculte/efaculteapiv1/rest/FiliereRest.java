@@ -45,6 +45,13 @@ public class FiliereRest {
         return filliereService.findByReferenceEntiteAdministratif(refDep);
     }
 
+    
+    @GetMapping("/type/{type}")
+    public List<FiliereVo> findByTypeFiliere(@PathVariable int type) {
+        
+        return new FiliereConverter().toVo(filliereService.findByTypeFiliere(type));
+    }
+
    
 
    

@@ -160,6 +160,11 @@ public class FilliereServiceImpl implements FiliereService {
         this.etudiantService = etudiantService;
     }
 
+    @Override
+    public List<Filiere> findByTypeFiliere(int type) {
+        return filliereDao.findByTypeFiliere(type);
+    }
+
    
 
     

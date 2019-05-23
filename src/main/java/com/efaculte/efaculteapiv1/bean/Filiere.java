@@ -62,10 +62,12 @@ public class Filiere implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     public List<Annonce> getAnnonces() {
         return annonces;
     }
 
+    @JsonSetter
     public void setAnnonces(List<Annonce> annonces) {
         this.annonces = annonces;
     }

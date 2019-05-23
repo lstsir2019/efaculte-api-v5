@@ -5,6 +5,8 @@
  */
 package com.efaculte.efaculteapiv1.rest.vo;
 
+import java.util.List;
+
 /**
  *
  * @author admin
@@ -17,6 +19,7 @@ public class AnnonceVo {
     private FiliereVo filiereVos;
     private String dateCreation;
     private TypeAnnonceVo typeAnnonceVo;
+    private List<DocumentVo> documentVo;
 
     public Long getId() {
         return id;
@@ -64,6 +67,14 @@ public class AnnonceVo {
 
     public void setTypeAnnonceVo(TypeAnnonceVo typeAnnonceVo) {
         this.typeAnnonceVo = typeAnnonceVo;
+    }
+
+    public List<DocumentVo> getDocumentVo() {
+        return documentVo;
+    }
+
+    public void setDocumentVo(List<DocumentVo> documentVo) {
+        this.documentVo = documentVo;
     }
 
     

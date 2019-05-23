@@ -20,4 +20,6 @@ public interface FiliereDao extends JpaRepository<Filiere, Long> {
 
     public Filiere findByLibelle(String libelle);
     public List<Filiere> findByReferenceEntiteAdministratif(String refDep);
+    public List<Filiere> findByTypeFiliere(int type);
+     
 }

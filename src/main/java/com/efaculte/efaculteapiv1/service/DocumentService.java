@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.efaculte.efaculteapiv1.dao;
+package com.efaculte.efaculteapiv1.service;
 
 import com.efaculte.efaculteapiv1.bean.Annonce;
+import com.efaculte.efaculteapiv1.bean.Document;
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author admin
  */
-
-@Repository
-public interface AnnonceDao extends JpaRepository<Annonce, Long>{
-    public Annonce findByTitle(String title);
-    
+public interface DocumentService {
+    public int saveDocument(Annonce annonce, List<Document> documents) ;
 }

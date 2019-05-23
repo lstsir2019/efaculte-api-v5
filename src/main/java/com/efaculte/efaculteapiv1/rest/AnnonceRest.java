@@ -7,8 +7,10 @@ package com.efaculte.efaculteapiv1.rest;
 
 import com.efaculte.efaculteapiv1.bean.Annonce;
 import com.efaculte.efaculteapiv1.service.AnnonceService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,23 @@ public class AnnonceRest {
     @PostMapping("/")
     public Annonce saveAnnonce(@RequestBody Annonce annonce) {
         return annonceService.saveAnnonce(annonce);
+    }
+
+    
+    @GetMapping("/")
+    public List<Annonce> findAll() {
+        return annonceService.findAll();
+    }
+
+    
+    
+    
+    public AnnonceService getAnnonceService() {
+        return annonceService;
+    }
+
+    public void setAnnonceService(AnnonceService annonceService) {
+        this.annonceService = annonceService;
     }
     
     

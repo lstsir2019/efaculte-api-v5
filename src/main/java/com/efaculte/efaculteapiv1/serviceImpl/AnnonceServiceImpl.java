@@ -9,6 +9,7 @@ import com.efaculte.efaculteapiv1.bean.Annonce;
 import com.efaculte.efaculteapiv1.bean.Filiere;
 import com.efaculte.efaculteapiv1.dao.AnnonceDao;
 import com.efaculte.efaculteapiv1.service.AnnonceService;
+import com.efaculte.efaculteapiv1.service.DocumentService;
 import com.efaculte.efaculteapiv1.service.FiliereService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class AnnonceServiceImpl implements AnnonceService{
     
     @Autowired
     private FiliereService filiereService;
+    @Autowired
+    private DocumentService documentservice;
+    
+ 
+    
 
     @Override
     public Annonce saveAnnonce(Annonce annonce) {
@@ -35,11 +41,25 @@ public class AnnonceServiceImpl implements AnnonceService{
             return null;
         }
         else{
+            saveAnnonceWithDocument(annonce);
             return annonceDao.save(annonce);
         }
      
         
     }
+    
+    @Override
+    public Annonce saveAnnonceWithDocument(Annonce annonce) {
+        Annonce a=findByTitle(annonce.getTitle());
+        if(a!=null){
+            return null;
+        }else{
+            annonceDao.save(annonce);
+            documentservice.saveDocument(annonce, annonce.getDocuments());
+             return annonce;
+        }
+    }
+    
     
     @Override
    public int saveAnnonceWithFiliere(Filiere filiere, List<Annonce> annonces){
@@ -59,5 +79,39 @@ public class AnnonceServiceImpl implements AnnonceService{
  public Annonce findByTitle(String title){
      return annonceDao.findByTitle(title);
  }
+
+    public AnnonceDao getAnnonceDao() {
+        return annonceDao;
+    }
+
+    public void setAnnonceDao(AnnonceDao annonceDao) {
+        this.annonceDao = annonceDao;
+    }
+
+    public FiliereService getFiliereService() {
+        return filiereService;
+    }
+
+    public void setFiliereService(FiliereService filiereService) {
+        this.filiereService = filiereService;
+    }
+
+    public DocumentService getDocumentservice() {
+        return documentservice;
+    }
+
+    public void setDocumentservice(DocumentService documentservice) {
+        this.documentservice = documentservice;
+    }
+
+    @Override
+    public List<Annonce> findAll() {
+        return annonceDao.findAll();
+    }
+
+   
     
+ 
+ 
+ 
 }

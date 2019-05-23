@@ -5,8 +5,7 @@
  */
 package com.efaculte.efaculteapiv1.dao;
 
-import com.efaculte.efaculteapiv1.bean.Annonce;
-import java.util.List;
+import com.efaculte.efaculteapiv1.bean.Document;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface AnnonceDao extends JpaRepository<Annonce, Long>{
-    public Annonce findByTitle(String title);
+public interface DocumentDao extends JpaRepository<Document, Long>{
     
 }

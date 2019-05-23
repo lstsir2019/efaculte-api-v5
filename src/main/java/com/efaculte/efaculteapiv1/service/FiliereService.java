@@ -23,5 +23,7 @@ public interface FiliereService {
     public List<Filiere> findAll();
     public List<Filiere> findByReferenceEntiteAdministratif(String refDep);
     public Filiere saveFiliereWithAnnonce(Filiere filiere);
+    public List<Filiere> findByTypeFiliere(int type);
+
 
 }

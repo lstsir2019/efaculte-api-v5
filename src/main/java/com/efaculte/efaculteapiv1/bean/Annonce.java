@@ -5,13 +5,17 @@
  */
 package com.efaculte.efaculteapiv1.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -20,6 +24,8 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Annonce implements Serializable {
+
+    
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,6 +41,8 @@ public class Annonce implements Serializable {
     private TypeAnnonce typeAnnonce;
     private int priorite;
     private Boolean desactiver;
+    @OneToMany(mappedBy = "annonce")
+    private List<Document> documents;
 
     public int getPriorite() {
         return priorite;
@@ -68,6 +76,16 @@ public class Annonce implements Serializable {
 
     public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
+    }
+
+    @JsonIgnore
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    @JsonSetter
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
     
     

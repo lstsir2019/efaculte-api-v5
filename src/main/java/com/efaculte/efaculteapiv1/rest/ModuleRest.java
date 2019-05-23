@@ -6,6 +6,8 @@
 package com.efaculte.efaculteapiv1.rest;
 
 import com.efaculte.efaculteapiv1.bean.Module;
+import com.efaculte.efaculteapiv1.converter.ModuleConverter;
+import com.efaculte.efaculteapiv1.rest.vo.ModuleVo;
 import com.efaculte.efaculteapiv1.service.ModuleService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,11 @@ public class ModuleRest {
     @GetMapping("/libelleFiliere/{libelleFiliere}")
     public List<Module> findByFiliereLibelle(@PathVariable String libelleFiliere) {
         return moduleService.findByFiliereLibelle(libelleFiliere);
+    }
+
+    @GetMapping("/libelle/{libelle}")
+    public ModuleVo findByLibelle(@PathVariable String libelle) {
+        return new ModuleConverter().toVo(moduleService.findByLibelle(libelle));
     }
 
     
