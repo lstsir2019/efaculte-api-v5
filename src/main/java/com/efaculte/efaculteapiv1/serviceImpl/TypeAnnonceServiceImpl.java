@@ -8,6 +8,7 @@ package com.efaculte.efaculteapiv1.serviceImpl;
 import com.efaculte.efaculteapiv1.bean.TypeAnnonce;
 import com.efaculte.efaculteapiv1.dao.TypeAnnonceDao;
 import com.efaculte.efaculteapiv1.service.TypeAnnonceService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class TypeAnnonceServiceImpl implements TypeAnnonceService{
     @Override
     public TypeAnnonce saveType(TypeAnnonce typeAnnonce) {
         return typeAnnonceDao.save(typeAnnonce);
+    }
+
+    @Override
+    public List<TypeAnnonce> findAll() {
+        return typeAnnonceDao.findAll();
     }
     
     

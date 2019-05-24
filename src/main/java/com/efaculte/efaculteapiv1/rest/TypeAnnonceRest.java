@@ -7,8 +7,10 @@ package com.efaculte.efaculteapiv1.rest;
 
 import com.efaculte.efaculteapiv1.bean.TypeAnnonce;
 import com.efaculte.efaculteapiv1.service.TypeAnnonceService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +39,11 @@ public class TypeAnnonceRest {
     @PostMapping("/typeFiliere")
     public TypeAnnonce saveType(@RequestBody TypeAnnonce typeAnnonce) {
         return typeAnnonceService.saveType(typeAnnonce);
+    }
+
+    @GetMapping("/")
+    public List<TypeAnnonce> findAll() {
+        return typeAnnonceService.findAll();
     }
     
     

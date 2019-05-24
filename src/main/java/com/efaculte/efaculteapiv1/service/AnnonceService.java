@@ -19,5 +19,11 @@ public interface AnnonceService {
     public Annonce findByTitle(String title);
     public Annonce saveAnnonceWithDocument(Annonce annonce);
     public List<Annonce> findAll();
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationDesc();
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationAsc();
+        public Annonce desactiverAnnonce(String title);
+
+
+
 
 }

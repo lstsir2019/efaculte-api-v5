@@ -18,5 +18,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AnnonceDao extends JpaRepository<Annonce, Long>{
     public Annonce findByTitle(String title);
+    public List<Annonce> findByOrderByDateCreationDesc();
+    public List<Annonce> findByDesactiverFalse();
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationDesc();
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationAsc();
     
 }

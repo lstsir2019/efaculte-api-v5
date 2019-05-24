@@ -109,6 +109,28 @@ public class AnnonceServiceImpl implements AnnonceService{
         return annonceDao.findAll();
     }
 
+    @Override
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationDesc() {
+           return annonceDao.findByDesactiverFalseOrderByDateCreationDesc();
+
+    }
+
+    @Override
+    public List<Annonce> findByDesactiverFalseOrderByDateCreationAsc() {
+        return annonceDao.findByDesactiverFalseOrderByDateCreationAsc();
+    }
+
+    @Override
+    public Annonce desactiverAnnonce(String title){
+        Annonce annonce=findByTitle(title);
+        if(annonce==null){
+            return null;
+        }else{
+            annonce.setDesactiver(true);
+            annonceDao.save(annonce);
+            return annonce;
+        }
+    }
    
     
  

@@ -6,6 +6,7 @@
 package com.efaculte.efaculteapiv1.service;
 
 import com.efaculte.efaculteapiv1.bean.TypeAnnonce;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.efaculte.efaculteapiv1.bean.TypeAnnonce;
  */
 public interface TypeAnnonceService {
     public TypeAnnonce saveType(TypeAnnonce typeAnnonce);
+    public List<TypeAnnonce> findAll();
 }
