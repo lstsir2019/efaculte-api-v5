@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="49446d22-2103-4b5f-b8f7-e77f8b52c0b9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="10"/>
+	<property name="ireport.y" value="43"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="margin-botton" mode="Opaque">
+		<paragraph lineSpacing="Proportional"/>
+	</style>
+	<parameter name="filiere" class="java.lang.String"/>
+	<parameter name="objectif" class="java.lang.String"/>
+	<parameter name="modules" class="java.lang.String"/>
+	<field name="libelle" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="354" splitType="Stretch">
+			<textField>
+				<reportElement x="163" y="154" width="255" height="39" forecolor="#DC8835" uuid="1e0d58fd-93f8-4d3b-90c5-9e68dc2c153b"/>
+				<textElement>
+					<font fontName="Ebrima" size="24" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filiere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="272" width="372" height="61" uuid="be9922a5-5a21-4179-9d87-e1008a1f0c08"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{objectif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="271" width="74" height="20" forecolor="#FF820C" uuid="cb5ac8d1-beac-4dc0-9d91-66d8c1e8142e"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Objectif:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="8" y="25" width="189" height="77" uuid="8141555d-c298-4d49-985e-debb5652ae8c"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\Saved Pictures\\logo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="455" y="28" width="189" height="74" uuid="5b05842f-6ebc-41ed-a17e-b66c0620d0af"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\Saved Pictures\\logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="114" y="36" width="341" height="20" uuid="35a288bf-8913-4e6c-86da-b2bb3629adc5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ministère de l’Enseignement Supérieur Et de la Recherche ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="58" width="194" height="20" uuid="9fe64891-9db6-48fc-9c96-ff9214ae1598"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Scientifique Université Cadi Ayyad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="82" width="341" height="20" uuid="e7dfe99c-4859-4d49-9c3b-0cd52e3fd944"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faculté DES SCIENCES ET TECHNIQUE MARRAKECH]]></text>
+			</staticText>
+			<line>
+				<reportElement x="140" y="142" width="291" height="1" forecolor="#A96513" uuid="e59dc8ab-ec09-4208-bd0a-3d026a73cec4"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#A96513"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="142" y="198" width="291" height="1" forecolor="#A96513" uuid="d656d688-0946-49de-b586-0147267d741b"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#A96513"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="110" y="148" width="1036" height="50" uuid="0899ae7c-028e-4c05-8914-2c188896c395"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\Saved Pictures\\Coiffe-de-Dipl-me-Flexible-by-Lierys-bleu.95001_f2.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="14" y="333" width="74" height="20" forecolor="#FF820C" uuid="e33059b0-406e-4a6e-8ced-35adfff60ad4"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Semestre:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="277" height="20" uuid="fe7708ce-b916-4b52-bd62-77d9bd5c1eb1"/>
+				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="277" y="20" width="200" height="48" uuid="457dc0f5-5d64-45d7-b8e6-431c6460e1e4"/>
+				<subreportExpression><![CDATA["E:\\NetbeansProject\\simple-faculte-scolaritecreate-master\\src\\main\\resources\\report\\module.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="52" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement mode="Transparent" x="8" y="33" width="529" height="1" forecolor="#3366FF" uuid="2e941769-db17-4f07-9012-b57acd100d91"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Solid" lineColor="#A96513"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -19,6 +19,7 @@ public interface SemestreService {
     public Semestre saveSemestreWithModule(Semestre semestre);
     public int saveSemestreWithFiliere(Filiere filiere, List<Semestre> semestres);
     public List<Semestre> findByFiliereLibelle(String libelle);
+    public List<Semestre> findByFiliereAbreviation(String abreviation);
     public int saveSemestre(Semestre semestre,String libelle);
     public Semestre findByLibelleAndFiliereLibelle(String libelleSemestre,String libelleFiliere);
 

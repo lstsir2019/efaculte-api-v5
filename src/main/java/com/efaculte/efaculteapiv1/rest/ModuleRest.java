@@ -5,12 +5,25 @@
  */
 package com.efaculte.efaculteapiv1.rest;
 
+import com.efaculte.efaculteapiv1.bean.Filiere;
 import com.efaculte.efaculteapiv1.bean.Module;
+import com.efaculte.efaculteapiv1.bean.Semestre;
+import com.efaculte.efaculteapiv1.bean.commun.PdfUtil;
+import static com.efaculte.efaculteapiv1.bean.commun.PdfUtil.generate;
 import com.efaculte.efaculteapiv1.converter.ModuleConverter;
 import com.efaculte.efaculteapiv1.rest.vo.ModuleVo;
+import com.efaculte.efaculteapiv1.service.FiliereService;
 import com.efaculte.efaculteapiv1.service.ModuleService;
+import com.efaculte.efaculteapiv1.service.SemestreService;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +43,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ModuleRest {
     @Autowired
     ModuleService moduleService;
+    
+    @Autowired
+    FiliereService filiereService;
+    
+    @Autowired
+    SemestreService semestreService;
 
     
     @GetMapping("/libelleFiliere/{libelleFiliere}")
@@ -42,8 +61,25 @@ public class ModuleRest {
         return new ModuleConverter().toVo(moduleService.findByLibelle(libelle));
     }
 
-    
+       
 
+    @GetMapping("/pdf/{filiereLibelle}")
+    //@Produces("application/pdf")
+    public ResponseEntity<Object> report(@PathVariable String filiereLibelle) throws JRException,IOException{
+        Map<String,Object> param=new HashMap<>();
+        List<Module> md=moduleService.findByFiliereLibelle(filiereLibelle);
+        List<Semestre> sm=semestreService.findByFiliereAbreviation(filiereLibelle);
+        
+        Filiere filiere=filiereService.findByAbreviation(filiereLibelle);
+        String objectif=filiere.getObjectif();
+        String libelleFiliere=filiere.getLibelle();
+        param.put("filiere",libelleFiliere);
+        param.put("objectif",objectif);
+        
+        return PdfUtil.generate("module", param, sm, "/report/pdfFiliere.jasper");
+    }
+
+    
 
     
 //    // recuperer la liste des modules dans une filiere

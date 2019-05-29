@@ -16,6 +16,7 @@ import java.util.List;
 public interface FiliereService {
 
     public Filiere findByLibelle(String libelle);
+    public Filiere findByAbreviation(String abreviation);
     public Filiere saveFiliereWithSemestre(Filiere filiere);
     public Filiere saveFiliereWithEtudiant(Filiere filiere);
      public Filiere saveFiliereWithModule(Filiere filiere);

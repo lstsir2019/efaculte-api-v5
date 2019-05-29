@@ -129,6 +129,11 @@ public class SemestreServiceImpl implements SemestreService {
         this.moduleService = moduleService;
     }
 
+    @Override
+    public List<Semestre> findByFiliereAbreviation(String abreviation) {
+        return semestreDao.findByFiliereAbreviation(abreviation);
+    }
+
     
     
     

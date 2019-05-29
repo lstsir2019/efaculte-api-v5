@@ -165,6 +165,11 @@ public class FilliereServiceImpl implements FiliereService {
         return filliereDao.findByTypeFiliere(type);
     }
 
+    @Override
+    public Filiere findByAbreviation(String abreviation) {
+        return filliereDao.findByAbreviation(abreviation);
+    }
+
    
 
     

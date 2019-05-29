@@ -22,7 +22,7 @@ import com.efaculte.efaculteapiv1.vo.exhange.EntiteAdministratifVo;
 
 /**
  *
- * @author Naoufal's pc
+ * @author admin
  */
 @RestController()
 @CrossOrigin(origins = ("http://localhost:4200"))

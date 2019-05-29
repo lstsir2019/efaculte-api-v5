@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 23 mai 2019 à 16:34
+-- Généré le :  mer. 29 mai 2019 à 18:10
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -44,7 +44,13 @@ CREATE TABLE `annonce` (
 --
 
 INSERT INTO `annonce` (`id`, `date_creation`, `desactiver`, `description`, `priorite`, `title`, `filiere`, `type_annonce`) VALUES
-(8, '2019-05-02', b'1', 'jjhqhjsqhjhj', 0, 'Z', 2, 1);
+(8, '2019-05-02', b'1', 'jjhqhjsqhjhj', 0, 'Z', 2, 1),
+(12, '2019-05-07', b'1', 'jjhqhjsqhjhj', 0, 'a', 2, 1),
+(14, '2019-05-07', b'0', 'jjhqhjsqhjhj', 0, 'B', 2, 1),
+(16, '2019-05-17', b'0', 'jjhqhjsqhjhj', 0, 'r', 2, 1),
+(18, '2017-01-17', b'0', 'jjhqhjsqhjhj', 0, 'x', 2, 1),
+(24, '2019-05-08', b'0', '<div style=\"text-align: center;\"><b style=\"background-color: transparent; font-size: 1rem;\">hellow</b><span style=\"background-color: transparent; font-size: 1rem;\"> word</span></div>', 0, 'hajar', NULL, NULL),
+(25, '2019-05-01', b'0', '<div style=\"text-align: center;\"><span style=\"background-color: transparent; font-size: 1rem;\">hajarita</span></div>', 0, 'hajoura', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -65,7 +71,11 @@ CREATE TABLE `document` (
 
 INSERT INTO `document` (`id`, `libelle`, `pathe`, `annonce`) VALUES
 (7, 'emploie', 'hghyyt', 6),
-(9, 'emploie', 'hghyyt', 8);
+(9, 'emploie', 'hghyyt', 8),
+(13, 'emploie', 'hghyyt', 12),
+(15, 'emploie', 'hghyyt', 14),
+(17, 'emploie', 'hghyyt', 16),
+(19, 'emploie', 'hghyyt', 18);
 
 -- --------------------------------------------------------
 
@@ -95,7 +105,11 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `bloquer`, `cin`, `cne`, `date_naissance`, `email`, `etat_deust`, `gender`, `napogee`, `nb_connexion_reston`, `nom`, `password`, `prenom`, `filiere`) VALUES
-(92, 0, 'ee1', 'ee1', NULL, 'elkhalifai.hajar@gmail.com', 3, 'femme', 55522, 0, 'elkhalifa', 'hafsa', 'hafsa', 4);
+(92, 0, 'ee1', 'ee1', NULL, 'elkhalifai.hajar@gmail.com', 3, 'femme', 55522, 0, 'elkhalifa', 'hafsa', 'hafsa', 4),
+(20, 0, 'ee2', 'ee2', NULL, 'elkhalifai.hajar@gmail.com', 2, 'femme', 55522, 0, 'elkhalifa', 'hajar', 'hajar', 4),
+(21, 0, 'ee3', 'ee3', NULL, 'enaji.chaimaa@gmail.com', 2, 'femme', 55422, 0, 'enaji', 'chaimaa', 'chaimaa', 4),
+(22, 0, 'ee4', 'ee4', NULL, 'aitOuflla.imane@gmail.com', 2, 'femme', 45422, 0, 'ait ouflla', 'imane', 'imane', 4),
+(23, 0, 'ee5', 'ee5', NULL, 'elAissi.hajar@gmail.com', 2, 'femme', 25422, 0, 'el aissi', 'elaissi', 'hajar', 4);
 
 -- --------------------------------------------------------
 
@@ -117,10 +131,19 @@ CREATE TABLE `filiere` (
 --
 
 INSERT INTO `filiere` (`id`, `abreviation`, `libelle`, `objectif`, `reference_entite_administratif`, `type_filiere`) VALUES
-(1, 'IRISI', 'IRISI', 'hggq', 'informatique', 3),
-(2, 'SIR', 'SIR', 'hhhuizuyyu', 'informatique', 2),
-(3, 'BIOLOGIE ANALYSE MEDICALE', 'BIOLOGIE ANALYSE MEDICALE', 'hggq', 'biologie', 2),
-(4, 'MIPC', 'MIPC', 'hggq', 'math', 1);
+(1, 'IRISI', 'Ingénierie en Réseauxs et Systèmes d’Information', 'cette formation permet de former un ingenieur pour intervenir à tous les niveaux du réseau et du système d’information. Il apporte ses compétences dans les domaines de l’administration des data center et bases de données, de l’administration des réseaux..', 'informatique', 2),
+(2, 'SIR', 'Systeme informatique repartie', ' etre capable de concevoir, de développer et d’administrer des bases de Données, et de développer desapplications Internet et Intranet', 'informatique', 1),
+(3, 'BIO ANALYSE ', 'BIOLOGIE ANALYSE MEDICALE', 'hggq', 'biologie', 5),
+(4, 'MIPC', 'MIPC', 'hggq', 'math', 4),
+(6, 'IEEA', 'ELECTRONIQUE, ELECTROTECHNIQUE, AUTOMATIQUE ET INFORMATIQUE INDUSTRIELLE ', 'destiner à former des licencies dans les domaine du genie electrique avec ses differentes options ,est basée sur le caractére pratique de ses different composent', 'physique', 1),
+(7, 'MIASI', 'MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES DE L’INGENIEUR ', 'L’objectif étant de donner aux mathématiques la place qu’elles méritent d’occuper dans notre société. Et ceci en tenant compte de l’évolution des mathématiques au niveau enseignement, recherche et applications aux métiers de l’ingénieur.', 'math', 1),
+(8, 'PCM', 'PHYSICO-CHIMIE DES MATERIAUX ', 'PCM est une formation qui se veut généraliste. Elle aspire à inculquer des connaissances de base dans le domaine des matériaux, en l’occurrence les métaux et  alliages,  les  céramiques  et  verres,  les  polymères et  composites ', 'physique', 1),
+(9, 'GC', 'Genie Civil', 'L’objectif est la formation des cadres en Génie Civil de haut niveau scientifique et technique. La formation adonc vocation, en étroite collaboration avec les milieux professionnels, à participer au développement régional et national.', 'genie civil', 2),
+(10, 'IFA', 'Ingénierie en Finance et Actuariat', ' cette formation prépare les étudiants pour maitriser les outilset méthodes mathématiques, notamment statistiques, et informatiques utilisées en finance et en assurance et dans la prévision et la gestion optimale des risques financiers.', 'math', 2),
+(11, 'ISA', 'Industrie et Sécurité des Aliments', ' cette formation vise à former des cadres spécialisés compétents dans les techniques appliquées aux divers secteurs industriels, en particulier l’agro-alimentaire et la santé.', 'biologie', 2),
+(12, 'GMP', 'Génie des Matériaux et Procédés', 'Cette filière d’ingénieur est une formation pluridisciplinaire et pratique visant à former des cadres dans l’industrie de production, de transformation et de l’utilisation des matériaux organiques et inorganiques. ', 'chimie', 2),
+(13, 'BCG', 'Biologie, Chimie et Géologie', '\r\nTronc commun BCG a FSTG .Un cycle DEUST de 2 ans qui prépare l\'accès aux licences.\r\nIl s\'agit d\'un enseignement modulaire semestriel basé sur le controle contenu.', 'biologie', 4),
+(14, 'MIP', 'Math, Informatique et Physique', '', 'math', 4);
 
 -- --------------------------------------------------------
 
@@ -137,11 +160,11 @@ CREATE TABLE `hibernate_sequence` (
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(10),
-(10),
-(10),
-(10),
-(10),
+(26),
+(26),
+(26),
+(26),
+(26),
 (94),
 (94),
 (94);
@@ -324,7 +347,7 @@ ALTER TABLE `type_annonce`
 -- AUTO_INCREMENT pour la table `filiere`
 --
 ALTER TABLE `filiere`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

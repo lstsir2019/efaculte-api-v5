@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 public interface FiliereDao extends JpaRepository<Filiere, Long> {
 
     public Filiere findByLibelle(String libelle);
+    public Filiere findByAbreviation(String abreviation);
     public List<Filiere> findByReferenceEntiteAdministratif(String refDep);
     public List<Filiere> findByTypeFiliere(int type);
      

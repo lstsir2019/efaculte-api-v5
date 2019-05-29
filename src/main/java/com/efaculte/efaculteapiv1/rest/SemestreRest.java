@@ -32,6 +32,14 @@ public class SemestreRest {
     SemestreService semestreService;
 
     
+    @GetMapping("/abreviation/{abreviation}")
+    public List<Semestre> findByFiliereAbreviation(@PathVariable String abreviation) {
+        return semestreService.findByFiliereAbreviation(abreviation);
+    }
+
+    
+    
+    
 //find semestre by libelle semestre
     @GetMapping("/libelle/{libelle}")
     public SemestreVo findByLibelle(@PathVariable String libelle) {
