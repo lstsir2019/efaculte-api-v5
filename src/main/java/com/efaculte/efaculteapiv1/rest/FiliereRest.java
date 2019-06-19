@@ -72,6 +72,15 @@ public class FiliereRest {
         return filiereConverter.toVo(filliereService.findByLibelle(libelle));
     }
 
+    @GetMapping("abreviation/{abreviation}")
+    public FiliereVo findByAbreviation(String abreviation) {
+       FiliereConverter filiereConverter = new FiliereConverter();
+        return filiereConverter.toVo( filliereService.findByAbreviation(abreviation));
+    }
+    
+    
+    
+
     public FiliereService getFilliereService() {
         return filliereService;
     }

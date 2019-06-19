@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 29 mai 2019 à 18:10
+-- Généré le :  mer. 19 juin 2019 à 15:09
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -50,7 +50,8 @@ INSERT INTO `annonce` (`id`, `date_creation`, `desactiver`, `description`, `prio
 (16, '2019-05-17', b'0', 'jjhqhjsqhjhj', 0, 'r', 2, 1),
 (18, '2017-01-17', b'0', 'jjhqhjsqhjhj', 0, 'x', 2, 1),
 (24, '2019-05-08', b'0', '<div style=\"text-align: center;\"><b style=\"background-color: transparent; font-size: 1rem;\">hellow</b><span style=\"background-color: transparent; font-size: 1rem;\"> word</span></div>', 0, 'hajar', NULL, NULL),
-(25, '2019-05-01', b'0', '<div style=\"text-align: center;\"><span style=\"background-color: transparent; font-size: 1rem;\">hajarita</span></div>', 0, 'hajoura', NULL, NULL);
+(25, '2019-05-01', b'0', '<div style=\"text-align: center;\"><span style=\"background-color: transparent; font-size: 1rem;\">hajarita</span></div>', 0, 'hajoura', NULL, NULL),
+(26, NULL, b'0', '', 0, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,8 +109,8 @@ INSERT INTO `etudiant` (`id`, `bloquer`, `cin`, `cne`, `date_naissance`, `email`
 (92, 0, 'ee1', 'ee1', NULL, 'elkhalifai.hajar@gmail.com', 3, 'femme', 55522, 0, 'elkhalifa', 'hafsa', 'hafsa', 4),
 (20, 0, 'ee2', 'ee2', NULL, 'elkhalifai.hajar@gmail.com', 2, 'femme', 55522, 0, 'elkhalifa', 'hajar', 'hajar', 4),
 (21, 0, 'ee3', 'ee3', NULL, 'enaji.chaimaa@gmail.com', 2, 'femme', 55422, 0, 'enaji', 'chaimaa', 'chaimaa', 4),
-(22, 0, 'ee4', 'ee4', NULL, 'aitOuflla.imane@gmail.com', 2, 'femme', 45422, 0, 'ait ouflla', 'imane', 'imane', 4),
-(23, 0, 'ee5', 'ee5', NULL, 'elAissi.hajar@gmail.com', 2, 'femme', 25422, 0, 'el aissi', 'elaissi', 'hajar', 4);
+(22, 0, 'G13456978', 'ee4', NULL, 'aitOuflla.imane@gmail.com', 2, 'femme', 45422, 0, 'ait ouflla', 'imane', 'imane', 4),
+(23, 0, 'G135468978', 'ee5', NULL, 'elAissi.hajar@gmail.com', 2, 'femme', 25422, 0, 'el aissi', 'elaissi', 'hajar', 4);
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE `filiere` (
 
 INSERT INTO `filiere` (`id`, `abreviation`, `libelle`, `objectif`, `reference_entite_administratif`, `type_filiere`) VALUES
 (1, 'IRISI', 'Ingénierie en Réseauxs et Systèmes d’Information', 'cette formation permet de former un ingenieur pour intervenir à tous les niveaux du réseau et du système d’information. Il apporte ses compétences dans les domaines de l’administration des data center et bases de données, de l’administration des réseaux..', 'informatique', 2),
-(2, 'SIR', 'Systeme informatique repartie', ' etre capable de concevoir, de développer et d’administrer des bases de Données, et de développer desapplications Internet et Intranet', 'informatique', 1),
+(2, 'SIR', 'Systeme informatique repartie', ' etre capable de concevoir, de développer et d’administrer des bases de Données, et de développer des applications Internet et Intranet', 'informatique', 1),
 (3, 'BIO ANALYSE ', 'BIOLOGIE ANALYSE MEDICALE', 'hggq', 'biologie', 5),
 (4, 'MIPC', 'MIPC', 'hggq', 'math', 4),
 (6, 'IEEA', 'ELECTRONIQUE, ELECTROTECHNIQUE, AUTOMATIQUE ET INFORMATIQUE INDUSTRIELLE ', 'destiner à former des licencies dans les domaine du genie electrique avec ses differentes options ,est basée sur le caractére pratique de ses different composent', 'physique', 1),
@@ -160,11 +161,11 @@ CREATE TABLE `hibernate_sequence` (
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(26),
-(26),
-(26),
-(26),
-(26),
+(27),
+(27),
+(27),
+(27),
+(27),
 (94),
 (94),
 (94);

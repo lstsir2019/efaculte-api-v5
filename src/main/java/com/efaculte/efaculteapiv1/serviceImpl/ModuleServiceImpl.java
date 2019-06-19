@@ -120,57 +120,15 @@ public class ModuleServiceImpl implements ModuleService{
             return moduleDao.findBySemestre(semestre);
         }
          
-//     @Override
-//         public List<Module> findByFiliereLibelle(String libelleFiliere){
-//             return moduleDao.findByFiliereLibelle(libelleFiliere);
-//         }
-        
-        
-////    @Override
-////    public List<Module> findBySemestreByFiliereLibelle(String libelle){
-////       // List<Semestre> semestres=semestreService.findByFiliereLibelle(libelle);
-////       Filiere filiere=filiereService.findByLibelle(libelle);
-////       if(filiere==null){
-////           return null;
-////       }
-////       else{
-////           List<Semestre> semestres=filiere.getSemestres();
-////        List<Module> mds = null;
-////       //return listModuleByListSemestre(semestres);
-////      for(Semestre semestre:semestres){
-////            List<Module> modules=findBySemestreLibelle(semestre.getLibelle());
-////            if(modules !=null){
-////                for(Module m:modules){
-////                 mds.add(m);
-////             }
-////            }
-////             
-////       }
-////        return mds;
-////       }
-////        
-////    }
+    public List<Module> findByFiliereAbreviation(String libelle){
+        return moduleDao.findByFiliereAbreviation(libelle);
+    }
+  @Override
+    public List<Module> findAll() {
+        return moduleDao.findAll();
+    }
     
-//    @Override
-//    public int saveModule(Module module,String libelle){
-//        Filiere f = filiereService.findByLibelle(libelle);
-//      //  Module e=findByCne(etudiant.getCne());
-//        if(f==null){
-//            return -1;
-//        }
-//        if(e!=null){
-//            return -2;
-//        }
-//        else{
-////            etudiant.setBloquer(0);
-////            etudiant.setNbConnexionReston(0);
-////            etudiant.setFiliere(f);
-////            filiereService.saveFiliereWithEtudiant(f);
-////            etudiantDao.save(etudiant);
-//
-//        return 1;
-//        }
-//    }
+    
     
     public ModuleDao getModuleDao() {
         return moduleDao;
@@ -195,6 +153,6 @@ public class ModuleServiceImpl implements ModuleService{
     public void setSemestreService(SemestreService semestreService) {
         this.semestreService = semestreService;
     }
-    
-    
+
+  
 }

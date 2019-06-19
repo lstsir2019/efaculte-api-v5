@@ -25,9 +25,15 @@ public class Document implements Serializable {
     private Long id;
     private String libelle;
     private String pathe;
+ 
     @ManyToOne
     private Annonce annonce;
 
+
+    
+    
+    
+    
     public Long getId() {
         return id;
     }
@@ -36,6 +42,8 @@ public class Document implements Serializable {
         this.id = id;
     }
 
+    
+    
     public String getLibelle() {
         return libelle;
     }

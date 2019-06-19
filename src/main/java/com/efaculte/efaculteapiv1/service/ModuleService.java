@@ -20,6 +20,9 @@ public interface ModuleService {
     public List<Module> findBySemestreLibelle(String libelle);
     public List<Module> findBySemestre(Semestre semestre);
     public List<Module> findByFiliereLibelle(String libelleFiliere);
+    public List<Module> findByFiliereAbreviation(String libelle);
+
+    public List<Module> findAll();
 
     public Module findByLibelle(String libelle);
 

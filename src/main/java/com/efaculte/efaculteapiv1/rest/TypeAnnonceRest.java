@@ -41,7 +41,7 @@ public class TypeAnnonceRest {
         return typeAnnonceService.saveType(typeAnnonce);
     }
 
-    @GetMapping("/")
+    @GetMapping("/allTypeAnnonce")
     public List<TypeAnnonce> findAll() {
         return typeAnnonceService.findAll();
     }

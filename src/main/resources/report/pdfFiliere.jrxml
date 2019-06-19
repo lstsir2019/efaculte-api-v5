@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="49446d22-2103-4b5f-b8f7-e77f8b52c0b9">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="10"/>
-	<property name="ireport.y" value="43"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="51"/>
 	<style name="Crosstab Data Text" hAlign="Center"/>
 	<style name="margin-botton" mode="Opaque">
 		<paragraph lineSpacing="Proportional"/>
 	</style>
 	<parameter name="filiere" class="java.lang.String"/>
 	<parameter name="objectif" class="java.lang.String"/>
-	<parameter name="modules" class="java.lang.String"/>
+	<parameter name="libellefiliere" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select libelle from semestre where filiere.abreviation = $P{filiere}]]>
+	</queryString>
 	<field name="libelle" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="354" splitType="Stretch">
+		<band height="441" splitType="Stretch">
 			<textField>
-				<reportElement x="163" y="154" width="255" height="39" forecolor="#DC8835" uuid="1e0d58fd-93f8-4d3b-90c5-9e68dc2c153b"/>
+				<reportElement x="183" y="142" width="515" height="51" forecolor="#0000CC" uuid="1e0d58fd-93f8-4d3b-90c5-9e68dc2c153b"/>
 				<textElement>
-					<font fontName="Ebrima" size="24" isBold="true" isUnderline="false"/>
+					<font fontName="Ebrima" size="36" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{filiere}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="99" y="272" width="372" height="61" uuid="be9922a5-5a21-4179-9d87-e1008a1f0c08"/>
+				<reportElement x="124" y="340" width="372" height="61" uuid="be9922a5-5a21-4179-9d87-e1008a1f0c08"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{objectif}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="14" y="271" width="74" height="20" forecolor="#FF820C" uuid="cb5ac8d1-beac-4dc0-9d91-66d8c1e8142e"/>
+				<reportElement x="14" y="342" width="74" height="20" forecolor="#0000FF" uuid="cb5ac8d1-beac-4dc0-9d91-66d8c1e8142e"/>
 				<textElement>
 					<font size="14" isBold="true" isUnderline="true"/>
 				</textElement>
@@ -67,28 +70,50 @@
 				<text><![CDATA[Faculté DES SCIENCES ET TECHNIQUE MARRAKECH]]></text>
 			</staticText>
 			<line>
-				<reportElement x="140" y="142" width="291" height="1" forecolor="#A96513" uuid="e59dc8ab-ec09-4208-bd0a-3d026a73cec4"/>
+				<reportElement x="123" y="142" width="332" height="1" forecolor="#000033" uuid="e59dc8ab-ec09-4208-bd0a-3d026a73cec4"/>
 				<graphicElement>
-					<pen lineWidth="3.0" lineColor="#A96513"/>
+					<pen lineWidth="3.0" lineColor="#000033"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="142" y="198" width="291" height="1" forecolor="#A96513" uuid="d656d688-0946-49de-b586-0147267d741b"/>
+				<reportElement x="122" y="193" width="333" height="1" forecolor="#000033" uuid="d656d688-0946-49de-b586-0147267d741b"/>
 				<graphicElement>
-					<pen lineWidth="3.0" lineColor="#A96513"/>
+					<pen lineWidth="3.0" lineColor="#000033"/>
 				</graphicElement>
 			</line>
 			<image>
-				<reportElement x="110" y="148" width="1036" height="50" uuid="0899ae7c-028e-4c05-8914-2c188896c395"/>
+				<reportElement x="100" y="148" width="343" height="39" uuid="0899ae7c-028e-4c05-8914-2c188896c395"/>
 				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\Saved Pictures\\Coiffe-de-Dipl-me-Flexible-by-Lierys-bleu.95001_f2.jpg"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="14" y="333" width="74" height="20" forecolor="#FF820C" uuid="e33059b0-406e-4a6e-8ced-35adfff60ad4"/>
+				<reportElement x="14" y="411" width="74" height="20" forecolor="#0000FF" uuid="e33059b0-406e-4a6e-8ced-35adfff60ad4"/>
 				<textElement>
 					<font size="14" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[Semestre:]]></text>
+				<text><![CDATA[Modules:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="15" y="257" width="102" height="20" forecolor="#0000FF" uuid="fbdcaa17-749a-4762-a021-1c534013ea08"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Nom Complet :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="305" width="100" height="20" forecolor="#0000FF" uuid="441ec6b9-753f-41d3-ac59-ec275b42191a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Abreviation:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="305" width="290" height="20" uuid="ce7a78c7-fa95-40d0-99d7-73f5ae74ec95"/>
+				<textFieldExpression><![CDATA[$P{filiere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="257" width="412" height="37" uuid="717180a1-1300-479b-a7b6-b428cc12c333"/>
+				<textFieldExpression><![CDATA[$P{libellefiliere}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -98,31 +123,24 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="89" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="277" height="20" uuid="fe7708ce-b916-4b52-bd62-77d9bd5c1eb1"/>
+				<reportElement x="117" y="8" width="100" height="20" uuid="3009ae1d-bd34-4020-821e-8dd825f9ce29"/>
 				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="277" y="20" width="200" height="48" uuid="457dc0f5-5d64-45d7-b8e6-431c6460e1e4"/>
-				<subreportExpression><![CDATA["E:\\NetbeansProject\\simple-faculte-scolaritecreate-master\\src\\main\\resources\\report\\module.jasper"]]></subreportExpression>
-			</subreport>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="52" splitType="Stretch"/>
+		<band height="26"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="47" splitType="Stretch">
 			<line>
-				<reportElement mode="Transparent" x="8" y="33" width="529" height="1" forecolor="#3366FF" uuid="2e941769-db17-4f07-9012-b57acd100d91"/>
+				<reportElement mode="Transparent" x="8" y="33" width="529" height="1" forecolor="#0000CC" uuid="2e941769-db17-4f07-9012-b57acd100d91"/>
 				<graphicElement>
-					<pen lineWidth="5.0" lineStyle="Solid" lineColor="#A96513"/>
+					<pen lineWidth="5.0" lineStyle="Solid" lineColor="#0000CC"/>
 				</graphicElement>
 			</line>
 		</band>
 	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

@@ -7,10 +7,10 @@ package com.efaculte.efaculteapiv1.rest;
 
 import com.efaculte.efaculteapiv1.bean.Filiere;
 import com.efaculte.efaculteapiv1.bean.Module;
-import com.efaculte.efaculteapiv1.bean.Semestre;
-import com.efaculte.efaculteapiv1.bean.commun.PdfUtil;
-import static com.efaculte.efaculteapiv1.bean.commun.PdfUtil.generate;
+import com.efaculte.efaculteapiv1.commun.PdfUtil;
+import com.efaculte.efaculteapiv1.converter.FiliereConverter;
 import com.efaculte.efaculteapiv1.converter.ModuleConverter;
+import com.efaculte.efaculteapiv1.rest.vo.FiliereVo;
 import com.efaculte.efaculteapiv1.rest.vo.ModuleVo;
 import com.efaculte.efaculteapiv1.service.FiliereService;
 import com.efaculte.efaculteapiv1.service.ModuleService;
@@ -20,8 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -67,26 +65,21 @@ public class ModuleRest {
     //@Produces("application/pdf")
     public ResponseEntity<Object> report(@PathVariable String filiereLibelle) throws JRException,IOException{
         Map<String,Object> param=new HashMap<>();
-        List<Module> md=moduleService.findByFiliereLibelle(filiereLibelle);
-        List<Semestre> sm=semestreService.findByFiliereAbreviation(filiereLibelle);
+        List<Module> md=moduleService.findByFiliereAbreviation(filiereLibelle);
+        //List<Semestre> sm=semestreService.findByFiliereAbreviation(filiereLibelle);
         
         Filiere filiere=filiereService.findByAbreviation(filiereLibelle);
         String objectif=filiere.getObjectif();
+        String abreviationFiliere=filiere.getAbreviation();
         String libelleFiliere=filiere.getLibelle();
-        param.put("filiere",libelleFiliere);
+        param.put("filiere",abreviationFiliere);
+        param.put("libellefiliere",libelleFiliere);
         param.put("objectif",objectif);
         
-        return PdfUtil.generate("module", param, sm, "/report/pdfFiliere.jasper");
+        return PdfUtil.generate("module", param, md, "/report/filierePdf.jasper");
     }
 
     
-
-    
-//    // recuperer la liste des modules dans une filiere
-//    @GetMapping("/libelleFiliere/{libelle}")
-//    public List<Module> findBySemestreByFiliereLibelle(@PathVariable String libelle) {
-//        return moduleService.findBySemestreByFiliereLibelle(libelle);
-//    }
 
     //recuperer la liste des modules dans une semestre
     @GetMapping("/libelleSemestre/{libelle}")
@@ -98,6 +91,11 @@ public class ModuleRest {
     @PostMapping("/libelleFiliere/{libelleFiliere}/semestreLibelle/{libelleSemestre}")
     public int saveModule(@RequestBody Module module,@PathVariable String libelleFiliere,@PathVariable String libelleSemestre) {
         return moduleService.saveModule(module,libelleFiliere, libelleSemestre);
+    }
+
+    @GetMapping("/findAll")
+    public List<ModuleVo> findAll() {
+        return new ModuleConverter().toVo(moduleService.findAll());
     }
     
     

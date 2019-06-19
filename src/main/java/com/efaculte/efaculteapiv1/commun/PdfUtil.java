@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.efaculte.efaculteapiv1.bean.commun;
+package com.efaculte.efaculteapiv1.commun;
 
 import java.io.File;
 import java.io.FileInputStream;
